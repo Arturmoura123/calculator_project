@@ -37,3 +37,23 @@ function operate(operator, a, b) {
         return undefined;
     }
 };
+
+
+let displayValue = "";
+
+function updateDisplay(digit) {
+    displayValue += digit;
+    document.getElementById("display").value = displayValue;
+}
+
+
+function getIntegerWork() {
+    for (let i = 0; i < 10; i++) {
+        let button = document.getElementById("btn-" + i);
+        button.addEventListener("click", function() {
+            updateDisplay(i.toString());
+        })
+    }
+}
+
+getIntegerWork();
