@@ -46,6 +46,11 @@ function updateDisplay(digit) {
     document.getElementById("display").value = displayValue;
 }
 
+function clearDisplay() {
+    displayValue = "";
+    document.getElementById("display").value = displayValue
+}
+
 
 function getIntegerWork() {
     for (let i = 0; i < 10; i++) {
@@ -57,3 +62,29 @@ function getIntegerWork() {
 }
 
 getIntegerWork();
+
+
+function getOperatorWork(operator) {
+    let operatorButton = document.getElementById("btn-" + operator);
+    
+    if (operatorButton) {
+        operatorButton.addEventListener("click", function() {
+            updateDisplay(operator);
+        });
+    }
+}
+
+getOperatorWork("+");
+getOperatorWork("-");
+getOperatorWork("*");
+getOperatorWork("/");
+
+
+function clear() {
+    let clearButton = document.getElementById("btn-clear");
+    clearButton.addEventListener("click", function () {
+        clearDisplay()
+    })
+}
+
+clear()
